@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
-
+gem 'pry-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
@@ -52,7 +52,18 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+# RSpec and Test Setting
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_bot'
+end
+
 group :test do
+  gem 'faker'
+  gem 'launchy'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'rails-controller-testing' # If you are using Rails 5.x
+
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
