@@ -1,5 +1,8 @@
 class Order < ApplicationRecord
-  validates :user_id, number: presence: true
+  belongs_to :user
+  has_many :coupons
+
+  validates :user_id, :number, presence: true
   validates :number, uniqueness: true
 end
 
