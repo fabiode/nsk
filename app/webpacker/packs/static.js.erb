@@ -1,0 +1,6 @@
+<% Dir.glob("webpacker/static/**/*").map do |f|
+    if File.stat(f).file?
+    i = f.sub(/^webpacker\/static\//, "")
+%>
+import "../static/<%= i %>"
+<% end %>
