@@ -3,6 +3,6 @@ class User < ApplicationRecord
   validates :name, :surname, :phone, :document, :email, presence: true
   validates_with CpfValidator
 
-  has_many :coupons
-  has_many :orders
+  has_many :coupons, dependent: :restrict_with_exception
+  has_many :orders, dependent: :restrict_with_exception
 end

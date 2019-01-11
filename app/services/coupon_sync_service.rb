@@ -26,9 +26,7 @@ class CouponSyncService
   def pick_coupons(order, amount)
     ActiveRecord::Base.transaction do
       coupons = Coupon.unused.random_pick(amount)
-      order.coupons << coupons
-      user.coupons << coupons
-      user.orders << order
+      CouponAssociationService.associate(order: order, user: user, coupons: coupons)
     end
   end
 
