@@ -45,6 +45,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot'
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -65,3 +66,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'devise-i18n'
+
+gem 'httparty'
