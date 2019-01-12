@@ -1,4 +1,5 @@
 class CouponSyncService
+  COUPON_VALUE = 150.0
   attr_reader :user, :current_orders, :new_orders, :vtex_client
 
   def initialize(user)
@@ -8,16 +9,17 @@ class CouponSyncService
   end
 
   def compare_orders
-    orders = VtexService.get_orders
-    orders.reject! { |new_order| current_orders.exist?(number: new_order[:orderId]) }
+    orders = vtex_client.get_orders
+    orders.reject! { |new_order| Order.exists?(number: new_order[:orderId]) }
     @new_orders = orders
   end
 
   def sync
-    new_orders.each do |order|
-      coupon_quantity = coupon_quantity_for(order)
+    new_orders.each do |vtex_order|
+      coupon_quantity = coupon_quantity_for(vtex_order)
       next if coupon_quantity == 0
 
+      order = Order.build(number: vtex_order[:orderId], user: @user)
       pick_coupons(order, coupon_quantity)
     end
   end
@@ -31,10 +33,10 @@ class CouponSyncService
     end
   end
 
-  def coupon_quantity_for(order)
-    order_data = VtexService.get_order_data(order)
+  def coupon_quantity_for(vtex_order)
+    order_data = vtex_client.relevant_order_data(vtex_order)
 
-    return 0 if order_data.elegible_products_amount.floor == 0
-    (order_data[:elegible_products_amount] / VtexService.COUPON_VALUE).floor
+    return 0 if order_data[:elegible_products_amount] < COUPON_VALUE
+    (order_data[:elegible_products_amount] / COUPON_VALUE).floor
   end
 end

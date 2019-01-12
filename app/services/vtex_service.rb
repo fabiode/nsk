@@ -3,12 +3,11 @@ class VtexService
   base_uri 'http://klasme.vtexcommercestable.com.br/api/oms/pvt/orders'
   API_KEY = ENV.fetch("VTEX_API_KEY", nil)
   API_TOKEN = ENV.fetch("VTEX_API_TOKEN", nil)
-  PROMO_NAME = ENV.fetch("PROMO_NAME", 'PromoNSK')
+  PROMO_NAME = ENV.fetch("PROMO_NAME", Rails.env.production? ? 'PromoNSK' : 'TesteNSK')
   ELEGIBLE_CATEGORY = ENV.fetch('ELEGIBLE_CATEGORY', '106')
   VALID_STATES = %w(payment-approved ready-for-handling handling invoiced)
 
-  attr_reader :orders
-  attr_reader :user
+  attr_reader :orders, :user, :last_order_data
 
   def initialize(user)
     @user = user
@@ -28,8 +27,14 @@ class VtexService
   def get_order_data(order)
     response = self.class.get("/#{order[:orderId]}", headers: headers, format: :plain)
     response = JSON.parse response, symbolize_names: true
+    @last_order_data = response
+  end
 
-    format_order_data(response)
+  def relevant_order_data(order)
+    order_data = get_order_data(order)
+    relevant_data = {}
+    relevant_data[:elegible_products_amount] = elegible_products_amount(order_data)
+    relevant_data
   end
 
   private
@@ -49,10 +54,6 @@ class VtexService
     end
   end
 
-  def format_order_data(order)
-    relevant_data = {}
-    relevant_data[:elegible_products_amount] = elegible_products_amount(order)
-  end
 
   def elegible_products_amount(order)
     elegible_items = order[:items].select do |item|
