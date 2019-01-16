@@ -1,5 +1,5 @@
 class CouponSyncService
-  COUPON_VALUE = 150.0
+  COUPON_VALUE = ENV.fetch('COUPON_VALUE', 150.0).to_f
   attr_reader :user, :current_orders, :new_orders, :vtex_client
 
   def initialize(user)

@@ -3,9 +3,9 @@ class VtexService
   base_uri 'http://klasme.vtexcommercestable.com.br/api/oms/pvt/orders'
   API_KEY = ENV.fetch("VTEX_API_KEY", nil)
   API_TOKEN = ENV.fetch("VTEX_API_TOKEN", nil)
-  PROMO_NAME = ENV.fetch("PROMO_NAME", Rails.env.production? ? 'PromoNSK' : 'TesteNSK')
-  ELEGIBLE_CATEGORY = ENV.fetch('ELEGIBLE_CATEGORY', '106')
-  VALID_STATES = %w(payment-approved ready-for-handling handling invoiced)
+  PROMO_NAME = ENV.fetch("PROMO_NAME", Rails.env.production? ? 'PromoNSK' : 'TESTENSK') # Rates & benefits filter to avoid large amount of orders in list
+  ELEGIBLE_CATEGORY = ENV.fetch('ELEGIBLE_CATEGORY', '102') # 102 SkinCare VTEX Category ID
+  VALID_STATES = %w(payment-approved ready-for-handling handling invoiced) # Valid order states in VTEX to set order as eligible
 
   attr_reader :orders, :user, :last_order_data
 
@@ -14,7 +14,7 @@ class VtexService
   end
 
   def get_orders
-    response = self.class.get("?q=#{@user.document}&per_page=100", headers: headers, format: :plain)
+    response = self.class.get("?q=#{@user.document}&f_RnB=#{PROMO_NAME}&per_page=100", headers: headers, format: :plain)
     response = JSON.parse response, symbolize_names: true
     if response[:paging][:total] >= 1
       @orders = response[:list]
