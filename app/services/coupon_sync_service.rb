@@ -22,6 +22,7 @@ class CouponSyncService
       order = Order.build(number: vtex_order[:orderId], user: @user)
       pick_coupons(order, coupon_quantity)
     end
+    true
   end
 
   private

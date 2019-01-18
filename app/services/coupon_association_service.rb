@@ -9,5 +9,6 @@ class CouponAssociationService
         Log.create(response: "success", message: "Coupon associated: #{coupon.inspect}", purpose: "CouponAssociationService")
       end
     end
+    return true
   end
 end

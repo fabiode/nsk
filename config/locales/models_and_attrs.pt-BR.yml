@@ -1,0 +1,55 @@
+pt-BR:
+  activerecord:
+    models:
+      api_log: Log de Api  #g
+      coupon: Cupom  #g
+      log: Registro  #g
+      order: Pedido  #g
+      user: Usuário  #g
+
+    attributes:
+      api_log:
+        request_data: Dados  #g
+        response: Resposta  #g
+        uuid: UUID  #g
+
+      coupon:
+        number: Número  #g
+        order: Pedido  #g
+        series: Série  #g
+        user: Usuário  #g
+        uuid: UUID  #g
+
+      log:
+        message: mensagem  #g
+        purpose: Propósito  #g
+        response: Resposta  #g
+
+      order:
+        coupons: Cupons  #g
+        number: Número  #g
+        user: Usuário  #g
+
+      user:
+        coupons: Cupons  #g
+        current_sign_in_at: Atualmente logado em  #g
+        current_sign_in_ip: IP do acesso atual  #g
+        document: CPF  #g
+        email: Email  #g
+        encrypted_password: Senha criptografada  #g
+        last_sign_in_at: Último acesso em  #g
+        last_sign_in_ip: Último IP de acesso  #g
+        mobile_phone: Celular  #g
+        name: Nome  #g
+        orders: Encomendas  #g
+        phone: Telefone  #g
+        remember_created_at: Lembrar criado em  #g
+        reset_password_sent_at: Resetar senha enviado em  #g
+        reset_password_token: Resetar token de senha  #g
+        surname: Sobrenome  #g
+    errors:
+      models:
+        user:
+          attributes:
+            document:
+              wrong_format: Inválido, por favor verifique o N° do documento.

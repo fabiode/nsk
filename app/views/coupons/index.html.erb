@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <%= link_to icon_text('sync', t(:sync_coupons)), sync_coupons_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+  <div class="col-md-12">
+    <%= content_tag :h2, t(:my_coupons) %>
+      <% if current_user.coupons.empty?%>
+        <%== t :no_coupons_yet, link: link_to(['','aqui',''].join('&nbsp;').html_safe, sync_coupons_path) %>
+      <% end %>
+    <div class="card-deck" data-wrapper='coupons'>
+      <%= render 'coupon_deck', coupons: current_user.coupons %>
+    </div>
+  </div>
+</div>

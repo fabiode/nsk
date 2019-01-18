@@ -11,8 +11,10 @@ $(function(){
   console.log('Hello World from Webpacker')
 })
 
-import 'bootstrap/dist/js/bootstrap';
 import Rails from 'rails-ujs';
+import jQuery from 'jquery'
+import $ from 'jquery'
+import 'bootstrap/dist/js/bootstrap';
 import Turbolinks from 'turbolinks';
 
 Rails.start();

@@ -1,0 +1,17 @@
+---
+pt-BR:
+  sign_up_now: Cadastre-se agora e concorra com os cupons!
+  associated_at: Associado em
+  coupon_number: 'N° de Cupom'
+  coupon_series: Série do Cupom
+  logout: 'Sair'
+  my_coupons: Meus cupons
+  order_number: 'N° do Pedido - Loja'
+  sync_coupons: Atualizar Cupons
+  sync_successful: Seus cupons foram atualizados com sucesso! Caso os cupons ainda não tenham aparecido, confirme se seu pedido consta como pago na Loja Klasme.
+  terms: Regulamento
+  document_found_now_password: 'CPF cadastrado! Digite sua senha agora.'
+  no_coupons_yet: 'Ainda não há pedidos cadastrados no seu CPF que possam receber cupons. Clique %{link} para atualizar'
+  document_not_found: 'Este CPF ainda não está cadastrado. Cadastre-se agora, preenchendo o formulário abaixo.'
+  email_reason: Precisamos do seu e-mail para notificá-lo sobre a promoção.
+  document_reason: O acesso ao site será com seu CPF. Utilize o mesmo CPF que consta na compra da Loja Virtual.

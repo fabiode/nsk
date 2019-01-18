@@ -1,0 +1,4 @@
+document.addEventListener("turbolinks:load", function() {
+  console.log('BLALABLALAL')
+  $('[data-wrapper=coupons]').smoothReplace("<%= j render 'coupon_deck', coupons: @coupons %>")
+})

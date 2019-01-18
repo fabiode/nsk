@@ -7,7 +7,7 @@ class Coupon < ApplicationRecord
   before_validation :generate_uuid, on: :create
   before_save :block_removal, on: :update
   scope :unused, -> { where(user_id: nil, order_id: nil) }
-  scope :random_pick, -> (amount) { order("RAND()").first(amount) }
+  scope :random_pick, -> (amount) { order("RANDOM()").first(amount) }
 
   private
 

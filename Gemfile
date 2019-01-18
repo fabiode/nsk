@@ -46,6 +46,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot'
   gem 'dotenv-rails'
+  gem 'i18n-tasks', '~> 0.9.28'
+  gem 'i18n_generators'
 end
 
 group :test do

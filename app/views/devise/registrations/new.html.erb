@@ -1,29 +1,68 @@
-<h2><%= t('.sign_up') %></h2>
+<div class="row">
+  <div class="col-md-8 col-sm-12 mx-auto">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <h1><%= t(:sign_up_now) %></h1>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          <small class="form-text text-muted"><%= t :email_reason %></small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+        </div>
+
+        <div class="form-group col-md-4">
+          <%= f.label :surname %><br />
+          <%= f.text_field :surname, autofocus: true, autocomplete: "surname", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <%= f.label :document %><br />
+          <%= f.telephone_field :document, autofocus: true, autocomplete: "document", class: "form-control" %>
+          <small class="form-text text-muted"><%= t :document_reason %></small>
+        </div>
+
+
+        <div class="form-group col-md-4">
+          <%= f.label :phone %><br />
+          <%= f.telephone_field :phone, autofocus: true, autocomplete: "phone", class: "form-control" %>
+        </div>
+
+        <div class="form-group col-md-4">
+          <%= f.label :mobile_phone %><br />
+          <%= f.telephone_field :mobile_phone, autofocus: true, autocomplete: "mobile_phone", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-row col-md-6 mx-auto">
+
+        <div class="form-group col-md-12">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control'%>
+        </div>
+
+        <div class="form-group col-md-12">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.button icon_text('user-plus' ,t(:sign_up)), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
