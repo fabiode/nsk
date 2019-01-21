@@ -12,10 +12,19 @@
         <li class="nav-item">
           <%= link_to icon_text('file-alt', t(:terms)), page_path(:regulamento), class: 'nav-link'  %>
         </li>
-      </ul>
-      <ul class="navbar-nav mr-0">
-        <li class="nav-item">
-          <%= link_to icon_text('power-off', t(:logout)), destroy_user_session_path, class: 'nav-link', method: :delete %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= icon('user') %> Minha Conta
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item disabled" disabled aria-disabled='true'>
+              <small>CPF: <%= format_cpf(current_user) %></small><br>
+              <small>E-mail: <%= current_user.email %></small><br>
+              <small>Nome: <%= full_name(current_user) %></small><br>
+            </a>
+            <div class="dropdown-divider"></div>
+            <%= link_to icon_text('power-off', t(:logout)), destroy_user_session_path, class: 'dropdown-item', method: :delete %>
+          </div>
         </li>
       </ul>
     </div>
