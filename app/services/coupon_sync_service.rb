@@ -23,7 +23,7 @@ class CouponSyncService
       order = Order.new(number: vtex_order[:orderId], user: @user)
       pick_coupons(order, coupon_quantity)
     end
-    true
+    return new_orders.length ==  0 ? false : true
   end
 
   private

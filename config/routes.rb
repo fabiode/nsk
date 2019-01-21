@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   get 'p/:page', to: 'pages#show', as: :page
   resources :coupons, only: [:index] do
-    get 'sync', on: :collection
+    post 'sync', on: :collection
   end
 end

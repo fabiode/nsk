@@ -9,12 +9,14 @@ class CouponsController < ApplicationController
   def sync
     syncr = CouponSyncService.new(current_user)
     syncr.compare_orders
-    syncr.sync
+
+    if syncr.sync
+      flash[:success] = I18n.t(:sync_successful)
+    else
+      flash[:alert] = I18n.t(:empty_order_list)
+    end
 
     @coupons = current_user.coupons.reload
-    respond_with @coupons do |f|
-      f.html { redirect_to coupons_path, success: t(:sync_successful) }
-      f.js { flash[:success] = t(:sync_successful) }
-    end
+    respond_with @coupons, location: coupons_url
   end
 end

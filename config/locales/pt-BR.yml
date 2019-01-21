@@ -8,6 +8,7 @@ pt-BR:
   my_coupons: Meus cupons
   order_number: 'N° do Pedido - Loja'
   sync_coupons: Atualizar Cupons
+  empty_order_list: Não há nenhum novo pedido na Loja Klasme que possa concorrer a cupons.
   sync_successful: Seus cupons foram atualizados com sucesso! Caso os cupons ainda não tenham aparecido, confirme se seu pedido consta como pago na Loja Klasme.
   terms: Regulamento
   document_found_now_password: 'CPF cadastrado! Digite sua senha agora.'
