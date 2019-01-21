@@ -7,5 +7,6 @@ FactoryBot.define do
     phone { "11999999999" }
     document { DocGenerator.generate_cpf  }
     sequence(:email) { |n| "some_#{n}@email.com"}
+    password { '123456' }
   end
 end

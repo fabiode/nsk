@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable
 
   validates :document, :email, uniqueness: { case_sensitive: false }
-  validates :name, :surname, :phone, :document, :email, presence: true
+  validates :name, :surname, :phone, :document, :email, :password,  presence: true
   validates_with CpfValidator
 
   has_many :coupons, dependent: :restrict_with_exception

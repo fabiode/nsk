@@ -3,11 +3,16 @@ require Rails.root.join('spec/support/vtex_responses.rb')
 describe CouponSyncService do
   let(:user) { FactoryBot.create :user}
   subject { CouponSyncService.new(user) }
+  before(:all) do
+    CouponSyncService::COUPON_VALUE = 150.0
+    VtexService::PROMO_NAME = ''
+    VtexService::ELIGIBLE_CATEGORY = '106'
+  end
 
   describe '#compare_orders' do
     context 'with no previous orders' do
       before(:each) do
-        VtexService.any_instance.stub(:get_orders).and_return(VtexResponses.elegible_orders_list)
+        VtexService.any_instance.stub(:orders).and_return(VtexResponses.elegible_orders_list)
       end
 
       it '#new_orders should return same order list' do
@@ -20,7 +25,7 @@ describe CouponSyncService do
       let(:quantity) { 5 }
       let(:vtex_orders) { VtexResponses.elegible_orders_list(quantity: quantity) }
       before(:each) do
-        VtexService.any_instance.stub(:get_orders).and_return(vtex_orders)
+        VtexService.any_instance.stub(:orders).and_return(vtex_orders)
         FactoryBot.create :order, number: vtex_orders.first[:orderId], user: user
       end
 
@@ -38,7 +43,7 @@ describe CouponSyncService do
       end
 
       it "should return 1 as coupon quantity" do
-        expect(subject.send(:coupon_quantity_for, {})).to be_eql(1)
+        expect(subject.send(:coupon_quantity_for, {})).to eq(1)
       end
     end
 
@@ -50,7 +55,7 @@ describe CouponSyncService do
       end
 
       it "should return 2 as coupon quantity" do
-        expect(subject.send(:coupon_quantity_for, {})).to be_eql(2)
+        expect(subject.send(:coupon_quantity_for, {})).to eq(2)
       end
     end
 
@@ -62,7 +67,7 @@ describe CouponSyncService do
       end
 
       it "should return 4 as coupon quantity" do
-        expect(subject.send(:coupon_quantity_for, {})).to be_eql(4)
+        expect(subject.send(:coupon_quantity_for, {})).to eq(4)
       end
     end
 
@@ -74,7 +79,7 @@ describe CouponSyncService do
       end
 
       it "should return 0 as coupon quantity" do
-        expect(subject.send(:coupon_quantity_for, {})).to be_eql(0)
+        expect(subject.send(:coupon_quantity_for, {})).to eq(0)
       end
     end
   end

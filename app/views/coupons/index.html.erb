@@ -7,7 +7,7 @@
       <% if current_user.coupons.empty?%>
         <%== t :no_coupons_yet, link: link_to(['','aqui',''].join('&nbsp;').html_safe, sync_coupons_path) %>
       <% end %>
-    <div class="card-deck" data-wrapper='coupons'>
+    <div class="card-columns" data-wrapper='coupons'>
       <%= render 'coupon_deck', coupons: current_user.coupons %>
     </div>
   </div>

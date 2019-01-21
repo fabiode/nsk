@@ -4,7 +4,7 @@ class VtexService
   API_KEY = ENV.fetch("VTEX_API_KEY", nil)
   API_TOKEN = ENV.fetch("VTEX_API_TOKEN", nil)
   PROMO_NAME = ENV.fetch("PROMO_NAME", Rails.env.production? ? 'PromoNSK' : 'TESTENSK') # Rates & benefits filter to avoid large amount of orders in list
-  ELEGIBLE_CATEGORY = ENV.fetch('ELEGIBLE_CATEGORY', '102') # 102 SkinCare VTEX Category ID
+  ELIGIBLE_CATEGORY = ENV.fetch('ELIGIBLE_CATEGORY', '102') # 102 SkinCare VTEX Category ID
   VALID_STATES = %w(payment-approved ready-for-handling handling invoiced) # Valid order states in VTEX to set order as eligible
 
   attr_reader :orders, :user, :last_order_data
@@ -58,9 +58,9 @@ class VtexService
   def elegible_products_amount(order)
     elegible_items = order[:items].select do |item|
       categories = item[:additionalInfo][:categoriesIds].split('/').reject { |n| n.blank? }
-      categories.include?(ELEGIBLE_CATEGORY)
+      categories.include?(ELIGIBLE_CATEGORY)
     end
 
-    elegible_items.sum { |item| item[:price] } / 100.0
+    elegible_items.sum { |item| item[:sellingPrice] * item[:quantity] } / 100.0
   end
 end

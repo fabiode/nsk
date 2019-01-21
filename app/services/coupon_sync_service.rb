@@ -9,7 +9,8 @@ class CouponSyncService
   end
 
   def compare_orders
-    orders = vtex_client.get_orders
+    vtex_client.get_orders
+    orders = vtex_client.orders
     orders.reject! { |new_order| Order.exists?(number: new_order[:orderId]) }
     @new_orders = orders
   end
@@ -19,7 +20,7 @@ class CouponSyncService
       coupon_quantity = coupon_quantity_for(vtex_order)
       next if coupon_quantity == 0
 
-      order = Order.build(number: vtex_order[:orderId], user: @user)
+      order = Order.new(number: vtex_order[:orderId], user: @user)
       pick_coupons(order, coupon_quantity)
     end
     true

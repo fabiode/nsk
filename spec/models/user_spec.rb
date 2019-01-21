@@ -1,7 +1,7 @@
 RSpec.describe User, type: :model do
   subject { FactoryBot.build :user}
   context 'attributes validations' do
-    [:name, :surname, :phone, :document, :email].each do |attr|
+    [:name, :surname, :phone, :document, :email, :password].each do |attr|
       it { should validate_presence_of(attr) }
     end
 
