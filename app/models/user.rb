@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :trackable
 
   validates :document, :email, uniqueness: { case_sensitive: false }
   validates :name, :surname, :phone, :document, :email, :password,  presence: true
