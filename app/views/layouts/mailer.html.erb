@@ -3,11 +3,40 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+body { font-family: sans-serif;  }
+.bg-pink {background-color: #fdc3ef;}
+.container {
+  width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+      .text-center {
+        text-align: center;
+      }
+      .coupon {
+        padding: 3em;
+      }
+      .coupon .number span {
+        font-size: 2em;
+        padding: .2em;
+        background: white;
+        color: black;
+        font-weight: bold;
+        margin: 0 .1em;
+      }
+      .coupon .series {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      .dashed-bottom {
+        border-bottom: 3px dashed black;
+      }
     </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
