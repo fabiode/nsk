@@ -1,0 +1,39 @@
+@import 'variables';
+
+.coupon-number {
+  span {
+    display: inline-block;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: .3em .1em;
+    padding: .2em;
+    color: $nsk-purple;
+    background: $light;
+    box-shadow: -5px 5px 0 rgba(0,0,0, .3);
+  }
+}
+.coupon {
+  dt { color: $nsk-purple; }
+  dd { color: $nsk-gray; }
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(sm) {
+    column-count: 2;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .introduction-text {
+    text-align: justify !important;
+    margin-top: 1rem;
+    font-size: .9rem;
+    background: rgba($nsk-pink, .5);
+    padding: 1em;
+    border-radius: .5em;
+    margin-right: 0 !important;
+  }
+}

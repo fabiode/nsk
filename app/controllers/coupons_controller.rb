@@ -13,11 +13,13 @@ class CouponsController < ApplicationController
 
       if syncr.sync
         flash[:success] = I18n.t(:sync_successful)
+        CouponMailer.coupon_associated(current_user).deliver_later
       else
         flash[:alert] = I18n.t(:empty_order_list)
       end
 
       @coupons = current_user.coupons.reload
+
       respond_with @coupons, location: coupons_url
     rescue NoCouponsException => e
       redirect_to coupons_path, alert: I18n.t(:no_more_coupons)

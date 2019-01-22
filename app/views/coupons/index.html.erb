@@ -1,10 +1,10 @@
 <div class="row mt-5">
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-12">
     <%= content_tag :h1, t(:my_coupons) %>
     <%= link_to icon_text('ticket-alt', t(:sync_coupons)), sync_coupons_path, class: 'btn btn-primary', method: :post %>
   </div>
-  <div class="col-md-8">
-    <%= content_tag :p, t(:introduction), class: 'text-white text-right mr-5 h6' %>
+  <div class="col-md-8 col-sm-12">
+    <%= content_tag :p, t(:introduction), class: 'text-white text-right mr-5 h6 introduction-text' %>
   </div>
   <div class="col-md-12 pt-5">
     <% if current_user.coupons.empty?%>

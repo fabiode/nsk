@@ -1,19 +1,23 @@
 <% coupons.each do |coupon| %>
-  <div class="card">
-    <%= render 'svg', content: format_coupon(coupon) %>
+  <div class="card coupon">
+    <%= content_tag :div, class: "card-img-top bg-#{coupon.series == 0 ? 'warning' : 'success'}" do %>
+      <div class="coupon-number pt-2 pb-2 text-center">
+        <div class="series mb-1 text-white">
+          <%= icon('ticket-alt tilted') %>
+          <strong> Série: <%= format_coupon_series(coupon) %></strong>
+        </div>
+        <%== format_coupon_number(coupon).split('').map { |digit| content_tag :span, digit }.join %>
+      </div>
+    <% end %>
     <div class="card-body">
-      <hgroup>
-        <h5 class="card-title"><%= format_coupon(coupon) %></h5>
-        <h6><%= t :coupon_series %>: <%= format_coupon_series(coupon) %></h6>
-        <h6><%= t :coupon_number %>: <%= format_coupon_number(coupon) %></h6>
-      </hgroup>
       <p class="card-text">
-        <dl>
-          <dt><%= t :associated_at %></dt>
-          <dd> <%= l coupon.order.created_at, format: :short %> </dd>
-          <dt><%= t :order_number %></dt>
-          <dd><%= coupon.order.number %></dd>
-        </dl>
+      <dl>
+        <dt><%= t :order_number %></dt>
+        <dd><%= coupon.order.number %></dd>
+
+        <dt><%= t :associated_at %></dt>
+        <dd> <%= l coupon.order.created_at, format: :short %> </dd>
+      </dl>
       </p>
     </div>
   </div>
