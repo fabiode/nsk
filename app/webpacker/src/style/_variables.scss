@@ -1,0 +1,20 @@
+$nsk-bordeaux: #7c0205;
+$nsk-gray: #a9a9a9;
+$nsk-blue: #46c1c7;
+$nsk-fpink: #ff48a5;
+$nsk-pink: #ff0371;
+$nsk-yellow: #fcb305;
+$nsk-purple: #9a69af;
+$nsk-green: #26d5ae;
+
+// bootstrap override
+$primary:       $nsk-blue;
+$success:       $nsk-green;
+$info:          $nsk-purple;
+$warning:       $nsk-yellow;
+$danger:        $nsk-bordeaux;
+$yiq-contrasted-threshold: 220;
+
+$font-size-base:              1.3rem; // Assumes the browser default, typically `16px
+$font-family-sans-serif: 'Oswald', sans-serif;
+

@@ -1,0 +1,17 @@
+body {
+  background-image: url('../static/bg.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: repeat-x;
+}
+
+.city-image-wrapper {
+  position: fixed;
+  mix-blend-mode: multiply;
+  transform: scale(1,-1);
+  img.shadow {
+    width: 100%;
+    height: auto;
+    opacity: 0.336;
+  }
+}

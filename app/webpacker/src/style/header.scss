@@ -1,0 +1,40 @@
+@import 'variables';
+
+header {
+  .logo {
+    text-align: center;
+    img { display: inline-block; }
+    .logo-pre {
+      display: block;
+      margin: 0 auto;
+    }
+    .logo-klasme {}
+    .logo-plus {margin: 0 1em 0 2em;}
+    .logo-niina {}
+  }
+}
+
+body.authenticated {
+  header .logo {
+    transform: scale(.4);
+    transform-origin: top;
+    margin-top: 1em;
+    height: 180px;
+  }
+}
+
+.navbar-custom {
+  a.nav-link {
+    color: $nsk-pink;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    &.active {
+      border-bottom: $nsk-pink 5px solid;
+    }
+    &:hover {
+      color: white;
+      text-shadow: -1px -1px 0 rgba($nsk-pink, 0.9)
+    }
+  }
+}

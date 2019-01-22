@@ -4,7 +4,7 @@
     <%= link_to icon_text('sync', t(:sync_coupons)), sync_coupons_path, class: 'btn btn-primary btn-lg', method: :post %>
   </div>
   <div class="col-md-12">
-    <%= content_tag :h2, t(:my_coupons) %>
+    <%= content_tag :h1, t(:my_coupons) %>
       <% if current_user.coupons.empty?%>
         <%== t :no_coupons_yet, link: link_to(['','aqui',''].join('&nbsp;').html_safe, sync_coupons_path, method: :post) %>
       <% end %>

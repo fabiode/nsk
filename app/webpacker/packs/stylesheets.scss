@@ -4,3 +4,9 @@
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
+
+// custom files
+@import '../src/style/background';
+@import '../src/style/header';
+@import '../src/style/buttons';
+@import '../src/style/typography';

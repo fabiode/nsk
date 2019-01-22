@@ -6,11 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
     <%= stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
+  <body class="<%= 'authenticated' if current_user.present? %>">
+    <script>
+    </script>
+    <div class="city-image-wrapper">
+      <%= image_tag asset_pack_path('static/cidade.png'), class: 'shadow' %>
+    </div>
     <header>
       <%= render 'shared/header' %>
     </header>

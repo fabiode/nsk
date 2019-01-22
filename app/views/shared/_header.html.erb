@@ -1,16 +1,22 @@
+<div class="logo">
+  <%= image_tag asset_pack_path('static/logo_pre.png'), class: 'logo-pre' %>
+  <%= image_tag asset_pack_path('static/logo_klasme.png'), class: 'logo-klasme' %>
+  <%= image_tag asset_pack_path('static/logo_plus.png'), class: 'logo-plus' %>
+  <%= image_tag asset_pack_path('static/logo_niina.png'), class: 'logo-niina' %>
+</div>
 <% if current_user %>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg mx-auto navbar-custom">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <%= link_to icon_text('ticket-alt', t(:my_coupons)), root_path, class: 'nav-link' %>
+          <%= link_to icon_text('ticket-alt', t(:my_coupons)), root_path, class: "nav-link #{ 'active' if current_page?(root_path) || current_page?(coupons_path) }" %>
         </li>
         <li class="nav-item">
-          <%= link_to icon_text('file-alt', t(:terms)), page_path(:regulamento), class: 'nav-link'  %>
+          <%= link_to icon_text('file-alt', t(:terms)), page_path(:regulamento), class: "nav-link #{ 'active' if current_page?(page_path(:regulamento)) }"  %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

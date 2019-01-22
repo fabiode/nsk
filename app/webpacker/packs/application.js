@@ -16,6 +16,7 @@ import jQuery from 'jquery'
 import $ from 'jquery'
 import 'bootstrap/dist/js/bootstrap';
 import Turbolinks from 'turbolinks';
+import '../src/js/city_shadow';
 
 Rails.start();
 Turbolinks.start();
