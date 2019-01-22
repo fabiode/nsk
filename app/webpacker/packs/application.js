@@ -12,11 +12,14 @@ $(function(){
 })
 
 import Rails from 'rails-ujs';
+import Inputmask from 'inputmask'
 import jQuery from 'jquery'
+import 'inputmask/dist/inputmask/jquery.inputmask';
 import $ from 'jquery'
 import 'bootstrap/dist/js/bootstrap';
 import Turbolinks from 'turbolinks';
 import '../src/js/city_shadow';
+import '../src/js/masks';
 
 Rails.start();
 Turbolinks.start();

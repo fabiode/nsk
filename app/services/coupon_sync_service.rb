@@ -6,6 +6,7 @@ class CouponSyncService
     @user = user
     @current_orders = user.orders
     @vtex_client = VtexService.new(@user)
+    raise NoCouponsException if Coupon.unused.count == 0
   end
 
   def compare_orders
@@ -41,4 +42,7 @@ class CouponSyncService
     return 0 if order_data[:elegible_products_amount] < COUPON_VALUE
     (order_data[:elegible_products_amount] / COUPON_VALUE).floor
   end
+end
+
+class NoCouponsException < Exception
 end

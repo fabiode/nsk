@@ -18,3 +18,6 @@ pt-BR:
   document_reason: O acesso ao site será com seu CPF. Utilize o mesmo CPF que consta na compra da Loja Virtual.
   introduction: "A Klasme e a Niina Secrets vão te levar pro outro lado do mundo para conhecer a loja conceito da Mediheal. A cada R$150 em compras de produtos skincare você ganha um cupom para participar!
 Já fez sua compra? Agora é só colocar uma máscara facial, atualizar seus cupons, e ficar na torcida! Boa sorte!"
+  no_more_coupons: "Não há cupons disponíveis para receber. Tente novamente mais tarde."
+  document_or_email_not_valid: E-mail e CPF não estão associados. Tenha certeza que o e-mail informado é o mesmo utilizado no cadastro do CPF.
+  reset_password_instructions: Em breve você receberá no seu e-mail cadastrado instruções para configurar uma nova senha.

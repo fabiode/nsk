@@ -10,11 +10,13 @@ header {
     }
     .logo-klasme {}
     .logo-plus {margin: 0 1em 0 2em;}
-    .logo-niina {}
+    .logo-niina {
+      filter: drop-shadow(1px 0px 10px rgba(255,255,255,0.9));
+    }
   }
 }
 
-body.authenticated {
+body.inner {
   header .logo {
     transform: scale(.4);
     transform-origin: top;
@@ -24,11 +26,12 @@ body.authenticated {
 }
 
 .navbar-custom {
-  a.nav-link {
+  li > a.nav-link {
     color: $nsk-pink;
     font-size: 1.3em;
     text-transform: uppercase;
     font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(white, 0.9);
     &.active {
       border-bottom: $nsk-pink 5px solid;
     }

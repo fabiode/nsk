@@ -1,13 +1,21 @@
-<div class="row">
-  <%= t(:introduction) %>
-  <div class="col-md-12 text-center">
-    <%= link_to icon_text('sync', t(:sync_coupons)), sync_coupons_path, class: 'btn btn-primary btn-lg', method: :post %>
-  </div>
-  <div class="col-md-12">
+<div class="row mt-5">
+  <div class="col-md-4">
     <%= content_tag :h1, t(:my_coupons) %>
-      <% if current_user.coupons.empty?%>
-        <%== t :no_coupons_yet, link: link_to(['','aqui',''].join('&nbsp;').html_safe, sync_coupons_path, method: :post) %>
-      <% end %>
+    <%= link_to icon_text('ticket-alt', t(:sync_coupons)), sync_coupons_path, class: 'btn btn-primary', method: :post %>
+  </div>
+  <div class="col-md-8">
+    <%= content_tag :p, t(:introduction), class: 'text-white text-right mr-5 h6' %>
+  </div>
+  <div class="col-md-12 pt-5">
+    <% if current_user.coupons.empty?%>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <p class="text-center alert alert-info">
+          <%== t :no_coupons_yet, link: link_to(['','aqui',''].join('&nbsp;').html_safe, sync_coupons_path, method: :post, class: 'text-info') %>
+          </p>
+        </div>
+      </div>
+    <% end %>
     <div class="card-columns" data-wrapper='coupons'>
       <%= render 'coupon_deck', coupons: current_user.coupons %>
     </div>

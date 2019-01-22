@@ -2,7 +2,22 @@
 
 h1,h2,h3,h4,h5,h6 {
   color: white;
-  text-shadow: 1px 1px solid $nsk-pink;
+  text-shadow: -1px -1px 0 rgba(darken($nsk-pink, 20), 0.8);
 }
 
 h1, h2 { text-transform: uppercase; font-weight: bold; }
+
+.form-group {
+  label {
+    text-transform: uppercase;
+    background-color: rgba($nsk-pink, 0.5);
+    padding: .2em;
+    border-radius: 3px;
+  }
+  color: white;
+  text-shadow: -1px -1px 0 darken($nsk-pink, 20);
+}
+
+small { font-weight: lighter; }
+
+body { font-weight: lighter; }

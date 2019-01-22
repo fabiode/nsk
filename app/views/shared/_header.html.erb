@@ -4,6 +4,16 @@
   <%= image_tag asset_pack_path('static/logo_plus.png'), class: 'logo-plus' %>
   <%= image_tag asset_pack_path('static/logo_niina.png'), class: 'logo-niina' %>
 </div>
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+</div>
 <% if current_user %>
   <nav class="navbar navbar-expand-lg mx-auto navbar-custom">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
