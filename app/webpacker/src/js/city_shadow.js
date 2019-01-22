@@ -15,10 +15,11 @@ $(document).ready(function(){
     //8deg => -20px
     //
     centerPoint = window.innerWidth / 2
+    threshold = 200
+    condition = mousePosX <= threshold+centerPoint && mousePosX >= centerPoint-threshold
     factor = mousePosX - centerPoint
-    threshold = centerPoint + 200
     transformFormula = 'skew('+.1 * factor+'deg, 0deg) translateX('+(-0.28*factor)+'px)'
-    condition = mousePosX <= threshold || mousePosX >= -threshold
+
     console.log(condition)
     if (condition) {
       $city_wrapper.find('.shadow').css({
