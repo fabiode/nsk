@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  http_basic_authenticate_with name: "klasme", password: "secrets" if Rails.env.staging?
+  http_basic_authenticate_with name: "klasme", password: "secrets" if Rails.env.staging? || ENV['HTTP_AUTH'].present?
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
