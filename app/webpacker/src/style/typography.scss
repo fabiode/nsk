@@ -5,6 +5,13 @@ h1,h2,h3,h4,h5,h6 {
   text-shadow: -1px -1px 0 rgba(darken($nsk-pink, 20), 0.8);
 }
 
+.bg-light {
+  h1,h2,h3,h4,h5,h6 {
+    color: inherit;
+    text-shadow: none;
+  }
+}
+
 h1, h2 { text-transform: uppercase; font-weight: bold; }
 
 .form-group {
