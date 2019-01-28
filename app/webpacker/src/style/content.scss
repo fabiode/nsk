@@ -26,14 +26,15 @@
   }
 }
 
-@include media-breakpoint-down(lg) {
-  .introduction-text {
-    text-align: justify !important;
-    margin-top: 1rem;
-    font-size: .9rem;
-    background: rgba($nsk-pink, .5);
-    padding: 1em;
-    border-radius: .5em;
-    margin-right: 0 !important;
-  }
+.introduction-text {
+  text-align: justify !important;
+  margin-top: 1rem;
+  font-size: .9rem;
+  background: rgba($nsk-pink, .5);
+  padding: 1em;
+  border-radius: .5em;
+  margin-right: 0 !important;
 }
+
+//@include media-breakpoint-down(lg) {
+//}

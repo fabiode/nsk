@@ -13,15 +13,21 @@
   </head>
 
   <body class="<%= 'inner' if !current_page?(controller: 'users/sessions', action: 'new') || current_user.present? %>">
-    <div class="city-image-wrapper">
-      <div class="shadow">
-        <%= image_tag asset_pack_path('static/cidade.png') %>
-      </div>
-    </div>
+    <%= render 'shared/city_shadow' if 1==0 %>
     <header>
       <%= render 'shared/header' %>
     </header>
     <div class="container with-pictures">
+      <div class="main-pic-wrapper">
+        <div class="pic-wrapper left">
+          <div class="pic-klasme">
+          </div>
+        </div>
+          <div class="pic-wrapper right">
+            <div class="pic-niina">
+            </div>
+          </div>
+      </div>
       <%= yield %>
     </div>
     <footer class='mt-5'>

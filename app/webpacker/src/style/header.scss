@@ -1,7 +1,12 @@
 @import 'variables';
 
+@include media-breakpoint-down(sm) {
+  header .logo {width: 100%;}
+  header .logo img { max-width: 100%;  }
+}
 header {
   .logo {
+    margin-top: 1em;
     text-align: center;
     img { display: inline-block; }
     .logo-pre {
@@ -20,7 +25,6 @@ body.inner {
   header .logo {
     transform: scale(.4);
     transform-origin: top;
-    margin-top: 1em;
     height: 180px;
   }
 }

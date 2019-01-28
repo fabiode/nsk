@@ -6,7 +6,7 @@
 </div>
 <div class="container">
   <% flash.each do |key, value| %>
-    <div class="<%= flash_class(key) %>">
+    <div class="<%= flash_class(key) %> float-alert">
       <%= value %>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>

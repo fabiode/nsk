@@ -7,11 +7,22 @@ body {
   overflow-x: hidden;
 }
 
-@include media-breakpoint-up(md) {
-  body{
-    background-size: contain;
-  }
+.float-alert {
+  position: absolute;
+  top: 152px;
+  margin: 0 auto;
+  min-width: 500px;
+  left: 0;
+  right: 0;
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+  max-width: 760px;
 }
+
+//@include media-breakpoint-up(md) {
+//body{
+//background-size: contain;
+//}
+//}
 
 @include media-breakpoint-down(md) {
   .city-image-wrapper { display: none; }
@@ -51,52 +62,48 @@ body {
 
 .container.with-pictures {
   position: relative;
-  &::before, &::after{
-    border: 5px solid white;
-    border-radius: 5px;
-    filter: drop-shadow(5px 5px 0px rgba(0,0,0,.2));
-    background-size: contain;
-    background-repeat: no-repeat;
-    content: ' ';
+  .main-pic-wrapper {position: absolute; width:100%;}
+  div.pic-wrapper{
+    z-index: -1;
     position: absolute;
-  }
-  &::before {
-    background-image: url('../static/foto_klasme_mascaras.jpg');
-    top: 5vh;
-    left: 0;
-    height: 213px;
-    width: 150px;
-    z-index: -1;
-    transform: rotate(-20deg) translate(40px, -60px);
-  }
+    width: 0;
+    height: 0;
 
-  &::after {
-    background-image: url('../static/foto_nina.jpg');
-    top: 5vh;
-    right: 0;
-    height: 213px;
-    width: 145px;
-    z-index: -1;
-    transform:  rotate(15deg) translate(3px, -100px);
+    &.left {
+      top: 5vh;
+      left: 0;
+      transform: rotate(-20deg) translate(-90px, -60px);
+    }
+    &.right {
+      top: 5vh;
+      right: 0;
+      transform:  rotate(15deg) translate(3px, -100px);
+    }
+
+    .pic-klasme, .pic-niina {
+      position: absolute;
+      border: 5px solid white;
+      border-radius: 5px;
+      filter: drop-shadow(5px 5px 0px rgba(0,0,0,.2));
+    }
+    .pic-klasme {
+      height: 213px;
+      width: 150px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('../static/foto_klasme_mascaras.jpg');
+    }
+
+    .pic-niina {
+      height: 213px;
+      width: 145px;
+      right: -100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('../static/foto_nina.jpg');
+    }
   }
 }
 
 body.inner .container.with-pictures {
-  &::before {
-    top: 5vh;
-    left: 0;
-    height: 213px;
-    width: 150px;
-    z-index: -1;
-    transform: rotate(-20deg) translate(-140px, -60px);
-  }
-
-  &::after {
-    top: 5vh;
-    right: 0;
-    height: 213px;
-    width: 145px;
-    z-index: -1;
-    transform:  rotate(15deg) translate(103px, -100px);
-  }
 }
