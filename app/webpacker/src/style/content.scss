@@ -36,5 +36,24 @@
   margin-right: 0 !important;
 }
 
+#error_explanation {
+    margin-bottom: 1em;
+    background-color: rgba(255,255,255,0.9);
+    padding: 1em;
+    font-size: .8em;
+    border-radius: 5px;
+    color: $danger;
+    font-weight: bold;
+    h2 {
+      font-size: 1.5em;
+      color: $danger;
+      text-shadow: none;
+    }
+}
+
+.form-text {
+  font-weight: bold;
+  font-size: .8em;
+}
 //@include media-breakpoint-down(lg) {
 //}

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-8 col-sm-12 mx-auto">
+
+    <h1><%= t(:edit_your_account) %></h1>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+        </div>
+
+        <div class="form-group col-md-3">
+          <%= f.label :surname %><br />
+          <%= f.text_field :surname, autofocus: true, autocomplete: "surname", class: "form-control" %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.label :phone %><br />
+          <%= f.telephone_field :phone, autofocus: true, autocomplete: "phone", class: "form-control" %>
+        </div>
+
+        <div class="form-group col-md-3">
+          <%= f.label :mobile_phone %><br />
+          <%= f.telephone_field :mobile_phone, autofocus: true, autocomplete: "mobile_phone", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.button icon_text('user-plus' ,t(:save_data)), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

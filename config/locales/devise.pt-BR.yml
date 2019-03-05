@@ -10,6 +10,7 @@ pt-BR:
         current_sign_in_at: Atualmente logado em
         current_sign_in_ip: IP do acesso atual
         email: Email
+        email_confirmation: Confirme o e-mail
         encrypted_password: Senha criptografada
         failed_attempts: Tentativas sem sucesso
         last_sign_in_at: "Último acesso em"
@@ -121,7 +122,7 @@ pt-BR:
         didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
         didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
         forgot_your_password: Esqueceu sua senha?
-        sign_in: Login
+        sign_in: Já é cadastrado? Entre aqui!
         sign_in_with_provider: 'Entrar com %{provider}'
         sign_up: Inscrever-se
       minimum_password_length:

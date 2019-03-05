@@ -8,7 +8,7 @@
       <div class="form-group">
         <%= f.label :password, t('.new_password') %><br />
         <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em> <br />
         <% end %>
         <%= f.password_field :password, autofocus: true, autocomplete: false, class: 'form-control' %>
       </div>

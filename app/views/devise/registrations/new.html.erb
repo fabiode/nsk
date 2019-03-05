@@ -8,61 +8,77 @@
 
       <div class="form-row">
         <div class="form-group col-md-4">
+          <%= f.label :document %><br />
+          <%= f.telephone_field :document, autofocus: true, autocomplete: "document", class: "form-control" %>
+          <small class="form-text"><%= t :document_reason %></small>
+        </div>
+
+        <div class="form-group col-md-4">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           <small class="form-text"><%= t :email_reason %></small>
         </div>
 
         <div class="form-group col-md-4">
-          <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
-        </div>
-
-        <div class="form-group col-md-4">
-          <%= f.label :surname %><br />
-          <%= f.text_field :surname, autofocus: true, autocomplete: "surname", class: "form-control" %>
+          <%= f.label :email_confirmation %><br />
+          <%= f.email_field :email_confirmation, autofocus: true, autocomplete: "email_confirmation", class: "form-control" %>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <%= f.label :document %><br />
-          <%= f.telephone_field :document, autofocus: true, autocomplete: "document", class: "form-control" %>
-          <small class="form-text"><%= t :document_reason %></small>
-        </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="form-group">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+          </div>
 
-
-        <div class="form-group col-md-4">
-          <%= f.label :phone %><br />
-          <%= f.telephone_field :phone, autofocus: true, autocomplete: "phone", class: "form-control" %>
-        </div>
-
-        <div class="form-group col-md-4">
-          <%= f.label :mobile_phone %><br />
-          <%= f.telephone_field :mobile_phone, autofocus: true, autocomplete: "mobile_phone", class: "form-control" %>
+          <div class="form-group">
+            <%= f.label :surname %><br />
+            <%= f.text_field :surname, autofocus: true, autocomplete: "surname", class: "form-control" %>
+          </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <%= f.label :phone %><br />
+              <%= f.telephone_field :phone, autofocus: true, autocomplete: "phone", class: "form-control" %>
+            </div>
 
-      <div class="form-row col-md-6 mx-auto">
-
-        <div class="form-group col-md-12">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-            <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control'%>
-        </div>
-
-        <div class="form-group col-md-12">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+            <div class="form-group col-md-6">
+              <%= f.label :mobile_phone %><br />
+              <%= f.telephone_field :mobile_phone, autofocus: true, autocomplete: "mobile_phone", class: "form-control" %>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="actions">
-        <%= f.button icon_text('user-plus' ,t('.sign_up')), class: "btn btn-primary" %>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+                <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password", class: 'form-control'%>
+            </div>
+
+            <div class="form-group col-md-6">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mx-auto text-center">
+        <div class="actions mb-3">
+          <%= f.button icon_text('user-plus' ,t('.sign_up')), class: "btn btn-primary" %>
+        </div>
+        <%= render "devise/shared/links" %>
       </div>
     <% end %>
 
-    <%= render "devise/shared/links" %>
   </div>
 </div>

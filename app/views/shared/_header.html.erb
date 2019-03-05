@@ -39,6 +39,7 @@
               <small>Nome: <%= full_name(current_user) %></small><br>
             </a>
             <div class="dropdown-divider"></div>
+            <%= link_to icon_text('edit', t(:edit_your_account)), edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to icon_text('power-off', t(:logout)), destroy_user_session_path, class: 'dropdown-item', method: :delete %>
           </div>
         </li>

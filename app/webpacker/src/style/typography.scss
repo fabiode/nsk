@@ -22,7 +22,12 @@ h1, h2 { text-transform: uppercase; font-weight: bold; }
     border-radius: 3px;
   }
   color: white;
-  text-shadow: -1px -1px 0 darken($nsk-pink, 20);
+
+  .form-text {
+    font-weight: bold;
+    font-size: .8em;
+    text-shadow: 1px 1px 5px rgba($danger, 0.8);
+  }
 }
 
 small { font-weight: lighter; }
