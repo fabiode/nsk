@@ -1,12 +1,13 @@
 class CouponSyncService
   COUPON_VALUE = ENV.fetch('COUPON_VALUE', 150.0).to_f
+  BLOCKED = ENV.fetch('BLOCK_SYNC').present?
   attr_reader :user, :current_orders, :new_orders, :vtex_client
 
   def initialize(user)
     @user = user
     @current_orders = user.orders
     @vtex_client = VtexService.new(@user)
-    raise NoCouponsException if Coupon.unused.count == 0
+    raise NoCouponsException if BLOCKED || Coupon.unused.count == 0
   end
 
   def compare_orders
